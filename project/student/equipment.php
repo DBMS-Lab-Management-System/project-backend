@@ -16,9 +16,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <meta charset="UTF-8">
     <title>Welcome</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
+    
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,17 +36,37 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   </div>
 </nav>
 
- <p>FACULTY PAGE</p>
- <a href="profile.php">PROFILE</a>
- <a href="enrollment.php">ENROLL STUDENTS</a>
- <a href="attendance.php">Attendance</a>        
- <a href="equipment.php">Equipment</a>            
-  <a href="marks.php">Marks</a>       
-         
-          
+ <form method="post">
+ <label for="eqname">Enter equipment name to be borrowed</label> 
+<input type="text" name = "eqname" class="form-control" placeholder="equipment name" aria-label="equipment name" aria-describedby="basic-addon1">
+<button type="submit" class="btn btn-primary" name="submit">Submit</button> 
+</form>
+<?php
+if(isset($_POST['submit']))
+{
+    $eqname = $_POST['eqname'];
+$id = $_SESSION['id'];
+$reg;
+$sql = "SELECT * FROM users";
+$query = mysqli_query($link,$sql);
+if($query)
+{
+    while($row = mysqli_fetch_assoc($query))
+    {
+        if($row['id'] == $id)
+        {
+            $reg = $row['reg_no'];
+        }
+    }
+}
+$sq = "INSERT INTO equipment(eq_name,student_reg_no) VALUES('$eqname',$reg)";
+$qu = mysqli_query($link,$sq);
+
+}
 
 
-       
-    
+
+
+?>        
 </body>
 </html>

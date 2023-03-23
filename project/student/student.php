@@ -45,6 +45,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
          <p>Student page </p>
          <a href="profile.php">Profile</a>
          <a href="attendance.php">Attendance</a>
+         <a href="equipment.php">Borrow equipment </a>
           
 
 
