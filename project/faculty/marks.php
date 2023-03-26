@@ -110,7 +110,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </select>
         <input type="text" name="erid" class="form-control" placeholder="enrollment id" aria-label="enrollment id"
             aria-describedby="basic-addon1">
-        <input type="text" name="marks" class="form-control" placeholder="marks" aria-label="marks"
+        <input type="text" name="marks1" class="form-control" placeholder="marks" aria-label="marks"
             aria-describedby="basic-addon1">
         <button type="submit" class="btn btn-primary" name="submit2">Submit</button>
     </form>
@@ -119,6 +119,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         $cid = $_SESSION['classid'];
         $mark = $_POST['mark'];
         $enid = $_POST['erid'];
+        $marks = $_POST['marks1'];
         $sreg;
         $freg;
         switch ($mark) {
@@ -133,7 +134,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         }
                     }
                 }
-                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,evaluation1_marks) VALUES ($enid,$sreg,$freg,$cid,$mark)";
+                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,evaluation1_marks) VALUES ($enid,$sreg,$freg,$cid,$marks)";
                 $qw = mysqli_query($link, $ql);
                 break;
             case 6:
@@ -147,7 +148,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         }
                     }
                 }
-                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,endsem_marks) VALUES ($enid,$sreg,$freg,$cid,$mark)";
+                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,endsem_marks) VALUES ($enid,$sreg,$freg,$cid,$marks)";
                 $qw = mysqli_query($link, $ql);
                 break;
             case 2:
@@ -161,7 +162,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         }
                     }
                 }
-                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,evaluation2_marks) VALUES ($enid,$sreg,$freg,$cid,$mark)";
+                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,evaluation2_marks) VALUES ($enid,$sreg,$freg,$cid,$marks)";
                 $qw = mysqli_query($link, $ql);
                 break;
             case 3:
@@ -175,7 +176,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         }
                     }
                 }
-                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,evaluation3_marks) VALUES ($enid,$sreg,$freg,$cid,$mark)";
+                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,evaluation3_marks) VALUES ($enid,$sreg,$freg,$cid,$marks)";
                 $qw = mysqli_query($link, $ql);
                 break;
             case 4:
@@ -189,7 +190,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         }
                     }
                 }
-                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,evaluation4_marks) VALUES ($enid,$sreg,$freg,$cid,$mark)";
+                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,evaluation4_marks) VALUES ($enid,$sreg,$freg,$cid,$marks)";
                 $qw = mysqli_query($link, $ql);
                 break;
             case 5:
@@ -203,7 +204,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         }
                     }
                 }
-                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,insem1_marks) VALUES ($enid,$sreg,$freg,$cid,$mark)";
+                $ql = "INSERT INTO marks(enrollment_id,student_reg_no,faculty_reg_no,class_id,insem1_marks) VALUES ($enid,$sreg,$freg,$cid,$marks)";
                 $qw = mysqli_query($link, $ql);
                 break;
         }
